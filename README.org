@@ -1,1 +1,7 @@
 * My .emacs.d/
+My emacs configuration consists of 3 files
+- early-init.el
+- init.el
+- config.org
+
+  

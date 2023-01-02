@@ -27,3 +27,30 @@ This is the emacs configuration file
 
 #+end_src
 
+* General Settings
+
+** backup directory
+Store the backup files *~ into .backups~ folder.
+#+begin_src emacs-lisp
+  (setq backup-directory-alist `((".*" . ".backups~/")))
+#+end_src
+
+** yes-or-no-p
+Change yes and no to y and n.
+#+begin_src emacs-lisp
+  (fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+** visible-bell
+#+begin_src emacs-lisp
+  (setq visible-bell t)
+#+end_src
+
+** lock-files
+#+begin_src emacs-lisp
+  (setq create-lockfiles nil)
+#+end_src
+
+
+
+
