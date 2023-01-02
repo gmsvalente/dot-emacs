@@ -52,5 +52,13 @@ Change yes and no to y and n.
 #+end_src
 
 
+* Packages
+** magit
+Magit is the git interface for emacs. It is AWESOME
+#+begin_src emacs-lisp
+  (use-package magit
+    :ensure t)
+#+end_src
+
 
 
