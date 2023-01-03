@@ -112,6 +112,23 @@ Change yes and no to y and n.
 
 
 
+* theme
+#+begin_src emacs-lisp
+  (use-package zenburn-theme
+    :ensure t
+    :config
+    (load-theme 'zenburn 'no-confirm)
+    (set-face-attribute 'default nil :height 140))
+#+end_src
+
+* rainbow-delimiters
+#+begin_src emacs-lisp
+  (use-package rainbow-delimiters
+    :ensure t
+    :hook (prog-mode . rainbow-delimiters-mode))
+#+end_src
+
+
 * Packages
 ** magit
 Magit is the git interface for emacs. It is AWESOME
@@ -119,5 +136,4 @@ Magit is the git interface for emacs. It is AWESOME
   (use-package magit
     :ensure t)
 #+end_src
-
 
