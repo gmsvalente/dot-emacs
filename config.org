@@ -137,3 +137,58 @@ Magit is the git interface for emacs. It is AWESOME
     :ensure t)
 #+end_src
 
+** lsp
+#+begin_src emacs-lisp
+  (use-package lsp-mode
+    :ensure t
+    :commands lsp
+    :hook ((clojure-mode
+	    clojurec-mode
+	    clojurescript-mode
+	    rustic-mode) . #'lsp))
+
+
+
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :init
+    (with-eval-after-load 'lsp-mode
+      (setq lsp-headerline-breadcrumb-enable nil)))
+
+#+end_src
+
+** clojure
+Clojure is my main programming language
+#+begin_src emacs-lisp
+  (use-package clojure-mode
+    :ensure t
+    :config 
+    (require 'flycheck-clj-kondo))
+
+  (use-package flycheck-clj-kondo :ensure t)
+
+  (use-package cider
+    :ensure t
+    :config
+    (setq org-babel-clojure-backend 'cider))
+
+  (defun clj-refactor-hook-fn ()
+    (clj-refactor-mode 1)
+    (yas-minor-mode 1))
+
+  (use-package clj-refactor
+    :ensure t
+    :init
+    (add-hook 'clojure-mode #'clj-refactor-hook-fn)
+    (add-hook 'clojurescript-mode #'clj-refactor-hook-fn)
+    (add-hook 'cider-repl-mode #'clj-refactor-hook-fn))
+#+end_src
+
+
+
+ 
+
+
+
+
