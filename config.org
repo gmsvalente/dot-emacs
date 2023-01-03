@@ -57,6 +57,23 @@ Change yes and no to y and n.
 #+end_src
 
 
+* org-mode
+#+begin_src emacs-lisp
+  (use-package org
+    :ensure t
+    :config
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (shell . t))))
+
+  (use-package org-bullets
+    :ensure t
+    :hook (org-mode . org-bullets-mode))
+
+#+end_src
+
+
 * paredit
 #+begin_src emacs-lisp
   (use-package paredit
@@ -68,7 +85,6 @@ Change yes and no to y and n.
 	    lisp-mode) .  #'paredit-mode ))
 
 #+end_src
-
 
 * projectile
 #+begin_src emacs-lisp 
@@ -103,4 +119,5 @@ Magit is the git interface for emacs. It is AWESOME
   (use-package magit
     :ensure t)
 #+end_src
+
 
