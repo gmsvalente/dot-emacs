@@ -70,6 +70,32 @@ Change yes and no to y and n.
 #+end_src
 
 
+* projectile
+#+begin_src emacs-lisp 
+  (use-package projectile
+    :ensure t
+    :init
+    (projectile-mode +1))
+#+end_src
+
+* dashboard
+#+begin_src emacs-lisp
+  (use-package dashboard
+    :ensure t
+    :config
+    (setq dashboard-banner-logo-title "Hello GV!")
+    (setq dashboard-startup-banner "/home/apollo/.emacs.d/assets/images/figo-green.png")
+    (setq dashboard-items '((recents . 10)
+			    (projects . 5)
+			    (bookmarks . 3)
+			    (agenda . 10)
+			    (registers . 3)))
+    :init
+    (dashboard-setup-startup-hook))
+#+end_src
+
+
+
 * Packages
 ** magit
 Magit is the git interface for emacs. It is AWESOME
