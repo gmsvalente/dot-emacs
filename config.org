@@ -57,6 +57,23 @@ Change yes and no to y and n.
 #+end_src
 
 
+* yasnippet
+#+begin_src emacs-lisp
+  (use-package yasnippet
+    :ensure t
+    :init
+    (yas-global-mode t))
+
+  (use-package clojure-snippets :ensure t)
+  (use-package java-snippets :ensure t)
+  (use-package aws-snippets :ensure t)
+  (use-package common-lisp-snippets :ensure t)
+
+  (use-package yasnippet-classic-snippets :ensure t)
+  (use-package yasnippet-snippets :ensure t)
+
+#+end_src
+
 * org-mode
 #+begin_src emacs-lisp
   (use-package org
@@ -79,11 +96,11 @@ Change yes and no to y and n.
   (use-package paredit
     :ensure t
     :commands paredit-mode
-    :hook ((clojure-mode
-	    emacs-lisp-mode
+    :hook ((emacs-lisp-mode
 	    cider-repl-mode
-	    lisp-mode) .  #'paredit-mode ))
-
+	    clojure-mode
+	    clojurescript-mode
+	    lisp-mode) . paredit-mode))
 #+end_src
 
 * projectile
@@ -99,8 +116,8 @@ Change yes and no to y and n.
   (use-package dashboard
     :ensure t
     :config
-    (setq dashboard-banner-logo-title "Hello GV!")
-    (setq dashboard-startup-banner "/home/apollo/.emacs.d/assets/images/figo-green.png")
+;    (setq dashboard-banner-logo-title "<yourmessagehere>")
+;    (setq dashboard-startup-banner "<yourimagehere>")
     (setq dashboard-items '((recents . 10)
 			    (projects . 5)
 			    (bookmarks . 3)
