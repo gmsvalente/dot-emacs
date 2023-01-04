@@ -90,6 +90,19 @@ Change yes and no to y and n.
 
 #+end_src
 
+* ivy
+#+begin_src emacs-lisp
+  (use-package ivy
+    :ensure t
+    :init (ivy-mode t))
+#+end_src
+* which-key
+#+begin_src emacs-lisp
+    (use-package which-key
+      :ensure t
+      :init (which-key-mode))
+#+end_src
+
 
 * paredit
 #+begin_src emacs-lisp
