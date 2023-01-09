@@ -117,6 +117,7 @@ Change yes and no to y and n.
 	    cider-repl-mode
 	    clojure-mode
 	    clojurescript-mode
+	    slime-repl-mode
 	    lisp-mode) . paredit-mode))
 #+end_src
 
