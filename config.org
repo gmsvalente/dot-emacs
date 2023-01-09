@@ -57,6 +57,22 @@ Change yes and no to y and n.
 #+end_src
 
 
+* theme
+#+begin_src emacs-lisp
+  (use-package zenburn-theme
+    :ensure t
+    :config
+    (load-theme 'zenburn 'no-confirm)
+    (set-face-attribute 'default nil :height 140))
+#+end_src
+* rainbow-delimiters
+#+begin_src emacs-lisp
+  (use-package rainbow-delimiters
+    :ensure t
+    :hook (prog-mode . rainbow-delimiters-mode))
+#+end_src
+
+
 * yasnippet
 #+begin_src emacs-lisp
   (use-package yasnippet
@@ -73,23 +89,11 @@ Change yes and no to y and n.
   (use-package yasnippet-snippets :ensure t)
 
 #+end_src
-
-* org-mode
+* flycheck
 #+begin_src emacs-lisp
-  (use-package org
-    :ensure t
-    :config
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((emacs-lisp . t)
-       (shell . t))))
-
-  (use-package org-bullets
-    :ensure t
-    :hook (org-mode . org-bullets-mode))
-
+  (use-package flycheck
+    :ensure t)
 #+end_src
-
 * ivy
 #+begin_src emacs-lisp
   (use-package ivy
@@ -116,14 +120,6 @@ Change yes and no to y and n.
 	    lisp-mode) . paredit-mode))
 #+end_src
 
-* projectile
-#+begin_src emacs-lisp 
-  (use-package projectile
-    :ensure t
-    :init
-    (projectile-mode +1))
-#+end_src
-
 * dashboard
 #+begin_src emacs-lisp
   (use-package dashboard
@@ -140,34 +136,53 @@ Change yes and no to y and n.
     (dashboard-setup-startup-hook))
 #+end_src
 
-
-
-* theme
+* org-mode
 #+begin_src emacs-lisp
-  (use-package zenburn-theme
+  (use-package org
     :ensure t
     :config
-    (load-theme 'zenburn 'no-confirm)
-    (set-face-attribute 'default nil :height 140))
-#+end_src
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (shell . t))))
 
-* rainbow-delimiters
-#+begin_src emacs-lisp
-  (use-package rainbow-delimiters
+  (use-package org-bullets
     :ensure t
-    :hook (prog-mode . rainbow-delimiters-mode))
+    :hook (org-mode . org-bullets-mode))
+
 #+end_src
 
 
-* Packages
-** magit
+* company
+#+begin_src emacs-lisp
+  (use-package company
+    :ensure t
+    :config
+    (add-hook 'after-init-hook 'global-company-mode)
+    :init
+
+    (setq company-idle-delay 0)
+    (setq company-minimum-prefix-length 1)
+    (setq company-selection-wrap-around t))
+#+end_src
+
+* projectile
+#+begin_src emacs-lisp 
+  (use-package projectile
+    :ensure t
+    :init
+    (projectile-mode +1))
+#+end_src
+
+
+
+* magit
 Magit is the git interface for emacs. It is AWESOME
 #+begin_src emacs-lisp
   (use-package magit
     :ensure t)
 #+end_src
-
-** lsp
+* lsp
 #+begin_src emacs-lisp
   (use-package lsp-mode
     :ensure t
@@ -188,6 +203,9 @@ Magit is the git interface for emacs. It is AWESOME
 
 #+end_src
 
+
+
+* Languages
 ** clojure
 Clojure is my main programming language
 #+begin_src emacs-lisp
@@ -214,11 +232,21 @@ Clojure is my main programming language
     (add-hook 'clojurescript-mode #'clj-refactor-hook-fn)
     (add-hook 'cider-repl-mode #'clj-refactor-hook-fn))
 #+end_src
+** common-lisp
+#+begin_src emacs-lisp
+  (setq inferior-lisp-program "sbcl")
+  (load (expand-file-name "~/.quicklisp/slime-helper.el"))
 
+#+end_src
 
-
- 
-
-
+** rust
+#+begin_src emacs-lisp
+  (use-package rustic
+    :ensure t
+    :hook ((rustic-mode . paredit-mode))
+    :init
+    (setq rustic-analyzer-command '("rustup run stable rust-analyzer")))
+#+end_src
+** toml
 
 
