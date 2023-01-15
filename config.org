@@ -56,6 +56,10 @@ Change yes and no to y and n.
   (global-display-line-numbers-mode t)
 #+end_src
 
+** with-editor
+#+begin_src emacs-lisp
+  (setq with-editor-emacsclient-executable "/usr/local/bin/emacsclient")
+#+end_src
 
 * theme
 #+begin_src emacs-lisp
@@ -64,6 +68,16 @@ Change yes and no to y and n.
     :config
     (load-theme 'zenburn 'no-confirm)
     (set-face-attribute 'default nil :height 140))
+
+  (use-package all-the-icons
+    :ensure t
+    :if (display-graphic-p))
+
+  (use-package doom-modeline
+    :ensure t
+    :init
+    (doom-modeline-mode 1))
+
 #+end_src
 * rainbow-delimiters
 #+begin_src emacs-lisp
@@ -158,10 +172,10 @@ Change yes and no to y and n.
 #+begin_src emacs-lisp
   (use-package company
     :ensure t
+    :pin "gnu"
     :config
     (add-hook 'after-init-hook 'global-company-mode)
     :init
-
     (setq company-idle-delay 0)
     (setq company-minimum-prefix-length 1)
     (setq company-selection-wrap-around t))
@@ -188,12 +202,12 @@ Magit is the git interface for emacs. It is AWESOME
   (use-package lsp-mode
     :ensure t
     :commands lsp
-    :hook ((clojure-mode
-	    clojurec-mode
-	    clojurescript-mode
-	    rustic-mode) . #'lsp))
+    :hook ((rustic-mode) . #'lsp))
 
-
+  ;; hooks for lsp clj's lsp suck!!
+  ;; (clojure-mode
+  ;;  clojurec-mode
+  ;;  clojurescript-mode)
 
   (use-package lsp-ui
     :ensure t
