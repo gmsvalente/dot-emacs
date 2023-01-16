@@ -78,6 +78,13 @@ Change yes and no to y and n.
     :init
     (doom-modeline-mode 1))
 
+  (use-package beacon
+    :ensure t
+    :config
+    (setq beacon-color "#ff0000")
+    (setq beacon-size 80)
+    :init
+    (beacon-mode 1))
 #+end_src
 * rainbow-delimiters
 #+begin_src emacs-lisp
