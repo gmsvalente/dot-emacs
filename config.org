@@ -61,6 +61,12 @@ Change yes and no to y and n.
   (setq with-editor-emacsclient-executable "/usr/local/bin/emacsclient")
 #+end_src
 
+** mouse-avoidance
+#+begin_src emacs-lisp
+  (mouse-avoidance-mode 'banish)
+#+end_src
+
+
 * theme
 #+begin_src emacs-lisp
   (use-package zenburn-theme
