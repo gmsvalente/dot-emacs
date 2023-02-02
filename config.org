@@ -156,13 +156,16 @@ Change yes and no to y and n.
 ;    (setq dashboard-banner-logo-title "<yourmessagehere>")
 ;    (setq dashboard-startup-banner "<yourimagehere>")
     (setq dashboard-items '((recents . 10)
-			    (projects . 5)
+			    (projects . 15)
 			    (bookmarks . 3)
 			    (agenda . 10)
 			    (registers . 3)))
     :init
     (dashboard-setup-startup-hook))
 #+end_src
+
+#+RESULTS:
+: t
 
 * org-mode
 #+begin_src emacs-lisp
