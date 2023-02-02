@@ -164,9 +164,6 @@ Change yes and no to y and n.
     (dashboard-setup-startup-hook))
 #+end_src
 
-#+RESULTS:
-: t
-
 * org-mode
 #+begin_src emacs-lisp
   (use-package org
