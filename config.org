@@ -180,6 +180,15 @@ Change yes and no to y and n.
 
 #+end_src
 
+* multiple-cursors
+#+begin_src emacs-lisp
+  (use-package multiple-cursors
+    :ensure t
+    :bind (("C-S-c C-S-c" . mc/edit-lines)
+	   ("C->" . mc/mark-next-like-this)
+	   ("C-<" . mc/mark-previous-like-this)
+	   ("C-c C-<" . mc/mark-all-like-this)))
+#+end_src
 
 * company
 #+begin_src emacs-lisp
@@ -234,6 +243,7 @@ Magit is the git interface for emacs. It is AWESOME
 
 
 * Languages
+
 ** clojure
 Clojure is my main programming language
 #+begin_src emacs-lisp
@@ -275,6 +285,13 @@ Clojure is my main programming language
     :init
     (setq rustic-analyzer-command '("rustup run stable rust-analyzer")))
 #+end_src
+
+
 ** toml
+** protobuf
+#+begin_src emacs-lisp
+  (use-package protobuf-mode
+    :ensure t)
+#+end_src
 
 
