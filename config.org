@@ -32,7 +32,7 @@ This is the emacs configuration file
 ** backup directory
 Store the backup files *~ into .backups~ folder.
 #+begin_src emacs-lisp
-  (setq backup-directory-alist `((".*" . ".backups~/")))
+  (setq backup-directory-alist `(("." . "~/.emacs-backups~/")))
 #+end_src
 
 ** yes-or-no-p
