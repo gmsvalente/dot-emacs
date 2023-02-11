@@ -66,6 +66,8 @@ Change yes and no to y and n.
   (mouse-avoidance-mode 'banish)
 #+end_src
 
+** hl-line-mode
+
 
 * theme
 #+begin_src emacs-lisp
@@ -285,7 +287,6 @@ Clojure is my main programming language
 #+begin_src emacs-lisp
   (use-package rustic
     :ensure t
-    :hook ((rustic-mode . paredit-mode))
     :init
     (setq rustic-analyzer-command '("rustup run stable rust-analyzer")))
 #+end_src
