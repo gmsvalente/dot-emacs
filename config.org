@@ -66,8 +66,6 @@ Change yes and no to y and n.
   (mouse-avoidance-mode 'banish)
 #+end_src
 
-** hl-line-mode
-
 
 * theme
 #+begin_src emacs-lisp
@@ -93,7 +91,14 @@ Change yes and no to y and n.
     (setq beacon-size 80)
     :init
     (beacon-mode 1))
-#+end_src
+
+  (global-hl-line-mode 1)
+  (set-face-background 'hl-line "#966969")
+
+
+
+
+    #+end_src
 * rainbow-delimiters
 #+begin_src emacs-lisp
   (use-package rainbow-delimiters
