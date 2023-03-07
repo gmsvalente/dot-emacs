@@ -4,6 +4,8 @@
 
 #+STARTUP: show2levels
 
+balkbal
+
 This is the emacs configuration file
 
 * header
@@ -93,7 +95,7 @@ Change yes and no to y and n.
     (beacon-mode 1))
 
   (global-hl-line-mode 1)
-  (set-face-background 'hl-line "#966969")
+  (set-face-background 'hl-line "#555555")
 
 
 
@@ -225,6 +227,8 @@ Magit is the git interface for emacs. It is AWESOME
 #+begin_src emacs-lisp
   (use-package magit
     :ensure t)
+
+  (pinentry-start)
 #+end_src
 * lsp
 #+begin_src emacs-lisp
