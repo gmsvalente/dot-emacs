@@ -68,6 +68,14 @@ Change yes and no to y and n.
   (mouse-avoidance-mode 'banish)
 #+end_src
 
+** ace-window
+#+begin_src emacs-lisp
+  (use-package ace-window
+    :ensure t
+    :config
+    (global-set-key (kbd "C-x o") 'ace-window))
+#+end_src
+
 
 * theme
 #+begin_src emacs-lisp
