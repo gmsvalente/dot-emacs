@@ -247,13 +247,18 @@ Change yes and no to y and n.
 
 #+end_src
 
+* ensure-system-package
+#+begin_src emacs-lisp
+  (use-package use-package-ensure-system-package
+    :ensure t)
+#+end_src
+
 * github-codespaces
 #+begin_src emacs-lisp
   (use-package codespaces
-    :ensure t
+    :ensure-system-package gh
     :config (codespaces-setup)
     :bind ("C-c S" . #'codespaces-connect))
-
 #+end_src
 
 
