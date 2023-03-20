@@ -230,6 +230,32 @@ Change yes and no to y and n.
 #+end_src
 
 
+* emacs-tree
+* tree-sitter
+#+begin_src emacs-lisp
+  (use-package tree-sitter
+    :ensure t)
+
+  (use-package tree-sitter-langs
+    :ensure t
+    :pin "melpa")
+#+end_src
+* dired-sidebar
+#+begin_src emacs-lisp
+  (use-package dired-sidebar
+    :ensure t)
+
+#+end_src
+
+* github-codespaces
+#+begin_src emacs-lisp
+  (use-package codespaces
+    :ensure t
+    :config (codespaces-setup)
+    :bind ("C-c S" . #'codespaces-connect))
+
+#+end_src
+
 
 * magit
 Magit is the git interface for emacs. It is AWESOME
