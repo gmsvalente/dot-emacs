@@ -247,11 +247,23 @@ Change yes and no to y and n.
 
 #+end_src
 
+
 * ensure-system-package
 #+begin_src emacs-lisp
   (use-package use-package-ensure-system-package
     :ensure t)
 #+end_src
+
+* quelpa
+#+begin_src emacs-lisp
+  (use-package quelpa
+    :ensure t)
+
+  (use-package quelpa-use-package
+    :ensure t)
+#+end_src
+
+* straight
 
 * github-codespaces
 #+begin_src emacs-lisp
@@ -259,6 +271,28 @@ Change yes and no to y and n.
     :ensure-system-package gh
     :config (codespaces-setup)
     :bind ("C-c S" . #'codespaces-connect))
+#+end_src
+
+* github-copilot
+#+begin_src emacs-lisp
+  (use-package copilot
+    :quelpa (copilot.el :fetcher github
+			:repo "zerolfx/copilot.el"
+			:branch "main"
+			:files ("dist" "*.el")))
+#+end_src
+
+* editorconfig
+#+begin_src emacs-lisp
+  (use-package editorconfig
+    :ensure t)
+#+end_src
+
+* dash
+#+begin_src emacs-lisp
+  (use-package dash
+    :ensure t)
+
 #+end_src
 
 
@@ -346,6 +380,23 @@ Clojure is my main programming language
 #+begin_src emacs-lisp
   (use-package protobuf-mode
     :ensure t)
+#+end_src
+
+
+** whitespace deletion
+
+(defun live-delete-whitespace-except-one ()
+  "Remove all whitespace except one."
+  (interactive)
+  (cycle-spacing -1))
+
+
+
+** ts-fold
+#+begin_src emacs-lisp
+  (use-package ts-fold
+    :quelpa (ts-fold :fetcher github :repo "emacs-tree-sitter/ts-fold"))
+
 #+end_src
 
 
