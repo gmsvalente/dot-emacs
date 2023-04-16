@@ -329,7 +329,11 @@ Magit is the git interface for emacs. It is AWESOME
   (use-package dockerfile-mode
     :ensure t)
 #+end_src
-
+* restclient
+#+begin_src emacs-lisp
+  (use-package restclient
+    :ensure t)
+#+end_src
 
 * Languages
 
@@ -399,4 +403,21 @@ Clojure is my main programming language
 
 #+end_src
 
+
+
+
+
+
+#+begin_src emacs-lisp
+  (setq browse-url-browser-function
+	(lambda (url &optional new-window)
+	  (interactive (browse-url-interactive-arg "URL: "))
+	  (let ((process-environment (browse-url-process-environment)))
+	    (apply #'start-process
+		   (concat "firefox -P " "emacs")
+		   nil
+		   "/opt/firefox/firefox"   ; update this path to your Firefox executable
+		   (append (list "-new-instance" "-P" "emacs" "--no-remote" url))))))
+
+#+end_src
 
