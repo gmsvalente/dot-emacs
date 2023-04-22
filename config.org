@@ -283,7 +283,7 @@ Change yes and no to y and n.
   ;;; write the :bind using the keymap
     :bind (:map copilot-mode-map
 		("M-o C-c" . copilot-accept-completion)
-		("M-o C-p" . copilot-mode)))
+		("M-o C-d" . copilot-mode)))
 #+end_src
 
 * editorconfig
