@@ -279,7 +279,11 @@ Change yes and no to y and n.
     :quelpa (copilot.el :fetcher github
 			:repo "zerolfx/copilot.el"
 			:branch "main"
-			:files ("dist" "*.el")))
+			:files ("dist" "*.el"))
+  ;;; write the :bind using the keymap
+    :bind (:map copilot-mode-map
+		("M-o C-c" . copilot-accept-completion)
+		("M-o C-p" . copilot-mode)))
 #+end_src
 
 * editorconfig
