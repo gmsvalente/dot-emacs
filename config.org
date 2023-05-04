@@ -196,6 +196,31 @@ Change yes and no to y and n.
     :ensure t
     :hook (org-mode . org-bullets-mode))
 
+  (defun org-present-start ()
+      (lambda ()
+	(org-present-big)
+	(org-display-inline-images)
+	(org-present-hide-cursor)
+	(org-present-read-only)))
+
+  (defun org-present-quit ()
+      (lambda ()
+	(org-present-small)
+	(org-remove-inline-images)
+	(org-present-show-cursor)
+	(org-present-read-write)))
+
+  (use-package org-present
+    :ensure t
+    :init
+    (add-hook 'org-present-mode-hook 'org-present-start)
+    (add-hook 'org-present-mode-quit-hook 'org-present-quit)
+    :config
+    (setq visual-fill-column-width 150
+	  visual-fill-column-center-text t)
+    (define-key org-present-mode-keymap (kbd "<right>") nil)
+    (define-key org-present-mode-keymap (kbd "<left>") nil))
+
 #+end_src
 
 * multiple-cursors
