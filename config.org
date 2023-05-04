@@ -433,11 +433,7 @@ Clojure is my main programming language
 
 #+end_src
 
-
-
-
-
-
+** browser-function
 #+begin_src emacs-lisp
   (setq browse-url-browser-function
 	(lambda (url &optional new-window)
