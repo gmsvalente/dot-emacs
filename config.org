@@ -325,6 +325,12 @@ Change yes and no to y and n.
 
 #+end_src
 
+* undo-tree
+#+begin_src emacs-lisp
+  (use-package undo-tree
+    :ensure t)
+#+end_src
+
 
 * magit
 Magit is the git interface for emacs. It is AWESOME
