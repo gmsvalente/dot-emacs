@@ -366,6 +366,10 @@ Magit is the git interface for emacs. It is AWESOME
 #+begin_src emacs-lisp
   (use-package dockerfile-mode
     :ensure t)
+
+  (use-package docker
+    :ensure t
+    :bind ("C-c d" . docker))
 #+end_src
 * restclient
 #+begin_src emacs-lisp
