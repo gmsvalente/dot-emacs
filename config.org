@@ -104,9 +104,7 @@ Change yes and no to y and n.
     (beacon-mode 1))
 
   (global-hl-line-mode 1)
-  (set-face-background 'hl-line "#555555")
-
-
+  (set-face-background 'hl-line "#335522")
 
 
     #+end_src
@@ -328,7 +326,11 @@ Change yes and no to y and n.
 * undo-tree
 #+begin_src emacs-lisp
   (use-package undo-tree
-    :ensure t)
+    :ensure t
+    :config
+    (setq undo-tree-history-directory-alist
+	  '(("." . "/home/apollo/.undo-tree")))
+    :init (global-undo-tree-mode t))
 #+end_src
 
 
