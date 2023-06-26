@@ -4,8 +4,6 @@
 
 #+STARTUP: show2levels
 
-balkbal
-
 This is the emacs configuration file
 
 * header
