@@ -282,6 +282,14 @@ Change yes and no to y and n.
 #+end_src
 
 
+* todotxt
+#+begin_src emacs-lisp
+  (use-package todotxt
+    :ensure t
+    :bind (("C-c t" . todotxt)))
+#+end_src
+
+
 * ensure-system-package
 #+begin_src emacs-lisp
   (use-package use-package-ensure-system-package
