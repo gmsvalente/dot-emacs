@@ -379,6 +379,8 @@ Magit is the git interface for emacs. It is AWESOME
       (setq lsp-headerline-breadcrumb-enable nil)))
 
 #+end_src
+
+
 * docker
 #+begin_src emacs-lisp
   (use-package dockerfile-mode
