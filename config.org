@@ -204,18 +204,18 @@ Change yes and no to y and n.
     :hook (org-mode . org-bullets-mode))
 
   (defun org-present-start ()
-      (lambda ()
-	(org-present-big)
-	(org-display-inline-images)
-	(org-present-hide-cursor)
-	(org-present-read-only)))
+    (lambda ()
+      (org-present-big)
+      (org-display-inline-images)
+      (org-present-hide-cursor)
+      (org-present-read-only)))
 
   (defun org-present-quit ()
-      (lambda ()
-	(org-present-small)
-	(org-remove-inline-images)
-	(org-present-show-cursor)
-	(org-present-read-write)))
+    (lambda ()
+      (org-present-small)
+      (org-remove-inline-images)
+      (org-present-show-cursor)
+      (org-present-read-write)))
 
   (use-package org-present
     :ensure t
@@ -228,6 +228,24 @@ Change yes and no to y and n.
     (define-key org-present-mode-keymap (kbd "<right>") nil)
     (define-key org-present-mode-keymap (kbd "<left>") nil))
 
+  (setq org-directory (concat (getenv "HOME") "/.notes/"))
+
+  (use-package org-roam
+    :ensure t
+    :after org
+    :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
+    :custom
+    (org-roam-directory (file-truename org-directory))
+    :config
+    (org-roam-setup)
+    :bind (("C-c n f" . org-roam-node-find)
+	   ("C-c n r" . org-roam-node-random)		    
+	   (:map org-mode-map
+		 (("C-c n i" . org-roam-node-insert)
+		  ("C-c n o" . org-id-get-create)
+		  ("C-c n t" . org-roam-tag-add)
+		  ("C-c n a" . org-roam-alias-add)
+		  ("C-c n l" . org-roam-buffer-toggle)))))
 #+end_src
 
 * multiple-cursors
