@@ -458,7 +458,6 @@ Clojure is my main programming language
     (setq rustic-analyzer-command '("rustup run stable rust-analyzer")))
 #+end_src
 
-
 ** toml
 ** protobuf
 #+begin_src emacs-lisp
@@ -466,14 +465,13 @@ Clojure is my main programming language
     :ensure t)
 #+end_src
 
-
+* misc 
 ** whitespace deletion
 
 (defun live-delete-whitespace-except-one ()
   "Remove all whitespace except one."
   (interactive)
   (cycle-spacing -1))
-
 
 
 ** ts-fold
