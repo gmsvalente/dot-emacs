@@ -28,7 +28,6 @@ This is the emacs configuration file
 #+end_src
 
 * General Settings
-
 ** backup directory
 Store the backup files *~ into .backups~ folder.
 #+begin_src emacs-lisp
@@ -93,6 +92,9 @@ Change yes and no to y and n.
     :init
     (doom-modeline-mode 1))
 
+  (use-package nerd-icons
+    :ensure t)
+
   (use-package beacon
     :ensure t
     :config
@@ -136,7 +138,6 @@ Change yes and no to y and n.
   (use-package java-snippets :ensure t)
   (use-package aws-snippets :ensure t)
   (use-package common-lisp-snippets :ensure t)
-
   (use-package yasnippet-classic-snippets :ensure t)
   (use-package yasnippet-snippets :ensure t)
 
@@ -292,6 +293,9 @@ Change yes and no to y and n.
 #+end_src
 * dired-sidebar
 #+begin_src emacs-lisp
+  (use-package dired-subtree
+    :ensure t)
+
   (use-package dired-sidebar
     :ensure t)
 
@@ -373,6 +377,9 @@ Change yes and no to y and n.
 Magit is the git interface for emacs. It is AWESOME
 #+begin_src emacs-lisp
   (use-package magit
+    :ensure t)
+
+  (use-package magit-section
     :ensure t)
 
   (pinentry-start)
@@ -467,12 +474,12 @@ Clojure is my main programming language
 
 * misc 
 ** whitespace deletion
-
+#+begin_src emacs-lisp 
 (defun live-delete-whitespace-except-one ()
   "Remove all whitespace except one."
   (interactive)
   (cycle-spacing -1))
-
+#+end_src
 
 ** ts-fold
 #+begin_src emacs-lisp
